@@ -60,16 +60,13 @@ The system integrates AI features to estimate bug resolution time:
 ```
 root/
 │
-├── api-gateway/
-├── eureka-server/
+├── API-GATEWAY/
+├── SERVICE-REGISTRY/
 │
-├── user-service/
-├── project-service/
-├── issue-service/
-├── comment-service/
-├── estimation-service/
-├── notification-service/
-├── audit-service/
+├── USER-SERVICE/
+├── AI-INTEGRATION
+├── PROJECT-SERVICE/
+├── ISSUES-SERVICE/
 │
 └── README.md
 ```
