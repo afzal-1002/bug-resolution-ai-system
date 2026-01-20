@@ -8,6 +8,7 @@ import java.util.List;
 public interface IssueService {
     IssueResponse createIssue(CreateIssueRequest request);
     IssueResponse getIssueByKey(String issueKey);
+    IssueResponse getIssueById(int id);
     IssueResponse updateIssue(String issueKey, CreateIssueRequest request);
     List<IssueResponse> listIssueResponsesByProjectId(String projectKey);
     List<IssueResponse> listIssuesForProjectKey(String projectKey);

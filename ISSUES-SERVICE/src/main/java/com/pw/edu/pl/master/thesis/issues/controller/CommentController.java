@@ -177,7 +177,7 @@ public class CommentController {
      * ========================= */
 
     /** List all AI-generated comments from local DB (DTO view). */
-    @GetMapping("/ai")
+    @GetMapping("/AIModel")
     public ResponseEntity<List<CommentResponse>> listAiComments() {
         return ResponseEntity.ok(commentService.getAllAiComments());
     }

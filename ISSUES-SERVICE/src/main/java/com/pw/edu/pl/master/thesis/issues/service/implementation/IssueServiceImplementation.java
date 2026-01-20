@@ -149,6 +149,31 @@ public class IssueServiceImplementation implements IssueService {
         return jiraIssue;
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public IssueResponse getIssueById(int id) {
+
+        if (id <= 0) {
+            throw new IllegalArgumentException("issueId must be greater than 0");
+        }
+
+        IssueResponse jiraIssue = jiraIssueService.getIssueById(id);
+
+        String projKey = Optional.ofNullable(jiraIssue.getFields())
+                .map(IssueFields::getProject)
+                .map(ProjectSummary::getKey)
+                .orElseThrow(() -> new ProjectNotFoundException(
+                        "Project key missing in Jira response for issueId: " + id
+                ));
+
+        resolveProjectByKeyOrThrow(projKey);
+
+        Issue entity = issueMapper.toIssueEntity(jiraIssue);
+        issueRepository.save(entity);
+
+        return jiraIssue;
+    }
+
 
     @Override
     @Transactional

@@ -117,6 +117,29 @@ public class JiraIssueServiceImplementation implements JiraIssueService {
 
     }
 
+    @Override
+    public IssueResponse getIssueById(int issueId) {
+
+        if (issueId <= 0) {
+            throw new IllegalArgumentException("issueId must be greater than 0");
+        }
+
+        String url = UriComponentsBuilder.fromUriString(
+                jiraUrlBuilder.url(requestCredentials.baseUrl(), JiraApiEndpoint.ISSUE ))
+                .pathSegment(String.valueOf(issueId))
+                .toUriString();
+
+        log.info("Url: {}", url);
+
+        return jiraClientConfiguration.get(
+                url,
+                IssueResponse.class,
+                requestCredentials.username(),
+                requestCredentials.token()
+        );
+    }
+
+
     public List<IssueTypeSummary> getAllJiraIssueForProject(String projectId) {
         String url = UriComponentsBuilder
                 .fromUriString(jiraUrlBuilder.url(requestCredentials.baseUrl(), JiraApiEndpoint.ISSUE_TYPE_PROJECT))

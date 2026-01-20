@@ -1,14 +1,17 @@
 package com.pw.edu.pl.master.thesis.ai.service;
 
-import com.pw.edu.pl.master.thesis.ai.model.ai.deepseek.DeepSeekChatRequest;
-import com.pw.edu.pl.master.thesis.ai.model.ai.deepseek.DeepSeekChatResponse;
-import org.springframework.ai.chat.model.ChatResponse;
-import org.springframework.ai.chat.prompt.Prompt;
-import org.springframework.ai.model.StreamingModel;
-import org.springframework.ai.ollama.api.OllamaApi;
-import org.springframework.stereotype.Service;
+import com.pw.edu.pl.master.thesis.ai.dto.ai.AIAnalysisRequest;
+import com.pw.edu.pl.master.thesis.ai.dto.ai.deepseek.DeepSeekChatRequest;
+import com.pw.edu.pl.master.thesis.ai.dto.ai.deepseek.DeepSeekChatResponse;
+import reactor.core.publisher.Flux;
 
-@Service
-public interface DeepSeekService  {
+public interface DeepSeekService {
+
     DeepSeekChatResponse chat(DeepSeekChatRequest request);
+
+    String generate(String message);
+
+    Flux<String> generateStream(String message);
+
+    String generateFromIssue(AIAnalysisRequest request);
 }

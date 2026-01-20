@@ -1,6 +1,6 @@
 package com.pw.edu.pl.master.thesis.ai.repository;
 
-import com.pw.edu.pl.master.thesis.ai.model.ai.ChatTurn;
+import com.pw.edu.pl.master.thesis.ai.model.AIModel.ChatTurn;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 

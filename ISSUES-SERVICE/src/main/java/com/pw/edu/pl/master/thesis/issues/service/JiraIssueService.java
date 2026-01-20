@@ -15,6 +15,7 @@ public interface JiraIssueService {
     IssueResponse               getIssueByKeyJira(String issueKey);
 
     IssueResponse               getIssueByIdOrKey(String issueKey);
+    IssueResponse               getIssueById(int issueKey);
     IssueResponse               getIssueByKeyIssuesSummaryResponse(String issueKey);
 
 //    List<CommentResponse>       syncCommentsForIssue(Issue issue, List<CommentResponse> jiraComments);

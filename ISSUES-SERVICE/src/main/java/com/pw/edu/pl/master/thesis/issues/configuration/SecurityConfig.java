@@ -86,12 +86,15 @@ public class SecurityConfig {
                                 "/swagger-ui.html"
                         ).permitAll()
 
+                        .requestMatchers("/auth/login", "/auth/refresh").permitAll()
                         // Everything else requires authentication
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(Customizer.withDefaults())   // enable HTTP Basic
+                        .anyRequest().authenticated())
+//                        .anyRequest().permitAll())
+//                        .httpBasic(AbstractHttpConfigurer::disable)
+                .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable)
-                .build();
+
+                        .build();
     }
 
 

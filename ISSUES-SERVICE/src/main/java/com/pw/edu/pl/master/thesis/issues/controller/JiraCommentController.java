@@ -87,15 +87,46 @@ public class JiraCommentController {
     }
 
     // -------- Update by issueKey + commentId --------
-    @PutMapping(value = "/{issueKey}/{commentId}")
+    @PutMapping(
+            value = "/{issueKey}/{commentId}",
+            consumes = "application/json",
+            produces = "application/json"
+    )
     public ResponseEntity<CommentResponse> updateComment(
             @PathVariable String issueKey,
             @PathVariable String commentId,
             @RequestBody UpdateCommentRequest request
     ) {
-        CommentResponse updated = jiraCommentService.updateCommentByIssueKeyCommentId(issueKey, commentId, request);
+
+        // 🔴 MAIN FIX: enforce VALID ADF body
+        if (request.getBody() == null || request.getBody().getContent() == null) {
+
+            request.setBody(
+                    com.pw.edu.pl.master.thesis.issues.dto.issue.response.Issuereponse.Body.builder()
+                            .type("doc")
+                            .version(1)
+                            .content(List.of(
+                                    com.pw.edu.pl.master.thesis.issues.dto.issue.response.Issuereponse.Body.Content.builder()
+                                            .type("paragraph")
+                                            .content(List.of(
+                                                    com.pw.edu.pl.master.thesis.issues.dto.issue.response.Issuereponse.Body.Content.builder()
+                                                            .type("text")
+                                                            .text("✅ Updated via API")
+                                                            .build()
+                                            ))
+                                            .build()
+                            ))
+                            .build()
+            );
+        }
+
+        CommentResponse updated =
+                jiraCommentService.updateCommentByIssueKeyCommentId(issueKey, commentId, request);
+
         return ResponseEntity.ok(updated);
     }
+
+
 
     // -------- Delete by issueKey + commentId --------
     @DeleteMapping("/{issueKey}/{commentId}")

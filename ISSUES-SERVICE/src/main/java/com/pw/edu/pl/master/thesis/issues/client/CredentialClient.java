@@ -11,13 +11,6 @@ import com.pw.edu.pl.master.thesis.issues.dto.user.TokenResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-//@FeignClient( name = "user-service",
-//        contextId = "jiraCredentialClient",
-//        url = "${user.service.url}",
-//        path = "/api/wut/credentials",
-//        configuration = FeignSecurityConfiguration.class
-//)
-
 @FeignClient(
         name = "USER-SERVICE",
         contextId = "jiraCredentialClient",

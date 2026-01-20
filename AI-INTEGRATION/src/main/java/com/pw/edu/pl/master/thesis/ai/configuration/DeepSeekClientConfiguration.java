@@ -1,8 +1,8 @@
 package com.pw.edu.pl.master.thesis.ai.configuration;
 
-import com.pw.edu.pl.master.thesis.ai.model.ai.deepseek.DeepSeekChatRequest;
-import com.pw.edu.pl.master.thesis.ai.model.ai.deepseek.DeepSeekChatResponse;
-import com.pw.edu.pl.master.thesis.ai.model.ai.deepseek.DeepSeekProperties;
+import com.pw.edu.pl.master.thesis.ai.dto.ai.deepseek.DeepSeekChatRequest;
+import com.pw.edu.pl.master.thesis.ai.dto.ai.deepseek.DeepSeekChatResponse;
+import com.pw.edu.pl.master.thesis.ai.dto.ai.deepseek.DeepSeekProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;

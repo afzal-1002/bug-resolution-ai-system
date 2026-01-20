@@ -50,6 +50,12 @@ public class IssueController {
         return ResponseEntity.ok(issueService.getIssueByKey(issueKey));
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<IssueResponse> getIssueById(@PathVariable("id") int id) {
+        return ResponseEntity.ok(issueService.getIssueById(id));
+    }
+
+
     /** 5) Synchronize all issues for a given project key (fetch from Jira → save locally → return list) */
     @PostMapping("/projects/sync/issues")
     public ResponseEntity<List<IssueResponse>> synchronizeProjectIssues(@RequestParam String projectKey) {

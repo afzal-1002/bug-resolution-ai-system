@@ -15,5 +15,7 @@ public class IssueDetails {
     private boolean hasAttachment;
     private List<CommentDetail> comments;
 
+    private IssueFields fields;
+
     public boolean hasAttachment() { return hasAttachment; }
 }

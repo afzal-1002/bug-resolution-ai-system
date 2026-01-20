@@ -1,7 +1,7 @@
 package com.pw.edu.pl.master.thesis.ai.dto.ai;
 
-import com.pw.edu.pl.master.thesis.ai.model.ai.gemini.Content;
-import com.pw.edu.pl.master.thesis.ai.model.ai.gemini.GenerationConfig;
+import com.pw.edu.pl.master.thesis.ai.model.AIModel.gemini.Content;
+import com.pw.edu.pl.master.thesis.ai.model.AIModel.gemini.GenerationConfig;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
