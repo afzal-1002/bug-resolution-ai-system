@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/wut/model/deepseek")
+@RequestMapping("/api/wut/model/ai/deepseek")
 @RequiredArgsConstructor
 public class DeepSeekController {
 

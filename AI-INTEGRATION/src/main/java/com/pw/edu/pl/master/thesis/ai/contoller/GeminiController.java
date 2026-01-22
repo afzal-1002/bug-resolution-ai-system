@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/wut/model/gemini")
+@RequestMapping("/api/wut/ai/model/gemini")
 @RequiredArgsConstructor
 public class GeminiController {
 
